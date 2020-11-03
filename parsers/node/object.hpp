@@ -7,7 +7,7 @@
 #include "base_node.hpp"
 #include "lvgl.h"
 
-namespace lv::node
+namespace mb::node
 {
     class object : public base_node
     {
@@ -17,27 +17,38 @@ namespace lv::node
             return "object";
         }
 
+        lv_obj_t *create() override
+        {
+            return lv_obj_create(lv_scr_act(), nullptr);
+        }
+
+        lv_obj_t *create(lv_obj_t *parent) override
+        {
+            return lv_obj_create(parent, nullptr);
+        }
+
         def::state_t parse(const pugi::xml_node &node, lv_obj_t *obj) override
         {
-            const def::markup_strategy<pugi::xml_attribute> attr_lut[] = {
-                    LVML_ADD_ATTR_FUNC(parse_width, obj, "width"),
-                    LVML_ADD_ATTR_FUNC(parse_height, obj,  "height"),
-                    LVML_ADD_ATTR_FUNC(parse_margin_height, obj,  "mg_height"),
-                    LVML_ADD_ATTR_FUNC(parse_margin_width, obj,  "mg_width"),
-                    LVML_ADD_ATTR_FUNC(parse_padding_height, obj,  "pd_height"),
-                    LVML_ADD_ATTR_FUNC(parse_padding_width, obj,  "pd_width"),
-                    LVML_ADD_ATTR_FUNC(parse_pos_x, obj,  "pos_x"),
-                    LVML_ADD_ATTR_FUNC(parse_pos_y, obj,  "pos_y"),
-                    LVML_ADD_ATTR_FUNC(parse_hidden, obj,  "hidden"),
+            static const def::markup_strategy<pugi::xml_attribute> attr_lut[] = {
+                    MB_ADD_ATTR_FUNC(parse_width, obj, "width"),
+                    MB_ADD_ATTR_FUNC(parse_height, obj, "height"),
+                    MB_ADD_ATTR_FUNC(parse_margin_height, obj, "mg_height"),
+                    MB_ADD_ATTR_FUNC(parse_margin_width, obj, "mg_width"),
+                    MB_ADD_ATTR_FUNC(parse_padding_height, obj, "pd_height"),
+                    MB_ADD_ATTR_FUNC(parse_padding_width, obj, "pd_width"),
+                    MB_ADD_ATTR_FUNC(parse_pos_x, obj, "pos_x"),
+                    MB_ADD_ATTR_FUNC(parse_pos_y, obj, "pos_y"),
+                    MB_ADD_ATTR_FUNC(parse_hidden, obj, "hidden"),
             };
 
             for(const auto& attr : attr_lut) {
-                pugi::xml_attribute xml_attr;
-                xml_attr = node.attribute(attr.name());
+                const auto& xml_attr = node.attribute(attr.name());
                 if (xml_attr) {
                     attr.run(xml_attr, obj);
                 }
             }
+
+            return def::STATE_OK;
         }
 
 
