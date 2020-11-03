@@ -5,17 +5,17 @@
 #include "pugixml.hpp"
 #include "defs.hpp"
 
-#define LVML_ADD_ATTR_FUNC(func, obj, name)                                             \
+#define MB_ADD_ATTR_FUNC(func, obj, name)                                             \
     def::markup_strategy<pugi::xml_attribute>([&](const pugi::xml_attribute &attr, lv_obj_t *(obj)) {    \
         return func(attr, obj);                                                              \
     }, name)
 
-#define LVML_ADD_NODE_FUNC(func, obj, name)                                             \
+#define MB_ADD_NODE_FUNC(func, obj, name)                                             \
     def::markup_strategy<pugi::xml_node>([&](const pugi::xml_node &attr, lv_obj_t *(obj)) {              \
         return func(attr, obj);                                                              \
     }, name)
 
-namespace lv::def
+namespace mb::def
 {
     template <typename T>
     class markup_strategy
