@@ -4,6 +4,7 @@
 #include <array>
 #include <memory>
 #include <vector>
+#include "node/label.hpp"
 #include "node/base_node.hpp"
 #include "node/object.hpp"
 
@@ -79,7 +80,8 @@ namespace mb
 
     private:
         std::array<node_parser, 10> node_parsers = {
-                std::make_unique<node::object>()
+                std::make_unique<node::object>(),
+                std::make_unique<node::label>()
         };
 
         size_t parent_hash = 0;
