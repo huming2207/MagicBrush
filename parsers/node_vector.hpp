@@ -4,19 +4,19 @@
 #include <array>
 #include <memory>
 #include <vector>
-#include "node/label.hpp"
-#include "node/base_node.hpp"
-#include "node/object.hpp"
+#include "widgets/label.hpp"
+#include "widgets/base_widget.hpp"
+#include "widgets/object.hpp"
 
 #include "lvgl.h"
 
 namespace mb
 {
-    using node_parser = std::unique_ptr<node::base_node>;
+    using node_parser = std::unique_ptr<widget::base_widget>;
     class node_vector : public std::vector<def::node_item>
     {
     public:
-        def::state_t parse_node(pugi::xml_node& node)
+        def::state_t parse_widget(pugi::xml_node& node)
         {
             for (auto& parser : node_parsers) {
                 if (strcmp(parser->name(), node.name()) == 0) {
@@ -26,7 +26,7 @@ namespace mb
                             : parser->create();
                     auto ret = parser->parse(node, obj_ptr);
                     if (ret != def::STATE_OK) {
-                        node::base_node::cleanup(obj_ptr);
+                        widget::base_widget::cleanup(obj_ptr);
                         return ret;
                     } else {
                         // Add to item
@@ -80,8 +80,8 @@ namespace mb
 
     private:
         std::array<node_parser, 10> node_parsers = {
-                std::make_unique<node::object>(),
-                std::make_unique<node::label>()
+                std::make_unique<widget::object>(),
+                std::make_unique<widget::label>()
         };
 
         size_t parent_hash = 0;

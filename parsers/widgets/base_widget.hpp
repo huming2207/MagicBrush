@@ -4,9 +4,9 @@
 #include "helper/defs.hpp"
 #include "helper/markup_strategy.hpp"
 
-namespace mb::node
+namespace mb::widget
 {
-    class base_node
+    class base_widget
     {
     public:
         static def::state_t cleanup(lv_obj_t *obj)

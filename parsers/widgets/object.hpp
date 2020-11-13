@@ -4,12 +4,12 @@
 #include <utility>
 #include <functional>
 #include "pugixml.hpp"
-#include "base_node.hpp"
+#include "base_widget.hpp"
 #include "lvgl.h"
 
-namespace mb::node
+namespace mb::widget
 {
-    class object : public base_node
+    class object : public base_widget
     {
     public:
         const char *name() override

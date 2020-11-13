@@ -48,7 +48,7 @@ namespace mb
             // Iterate through XML doc
             auto ret = def::STATE_OK;
             for (auto& node : mb_node.children()) {
-                ret = nodes.parse_node(node);
+                ret = nodes.parse_widget(node);
                 if (ret != def::STATE_OK) return ret;
             }
 

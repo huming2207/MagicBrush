@@ -2,7 +2,7 @@
 
 #include "object.hpp"
 
-namespace mb::node
+namespace mb::widget
 {
     class label : public object
     {
