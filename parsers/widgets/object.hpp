@@ -29,16 +29,16 @@ namespace mb::widget
 
         def::state_t parse(const pugi::xml_node &node, lv_obj_t *obj) override
         {
-            static const def::markup_strategy<pugi::xml_attribute> attr_lut[] = {
-                    MB_ADD_ATTR_FUNC(parse_width, obj, "width"),
-                    MB_ADD_ATTR_FUNC(parse_height, obj, "height"),
-                    MB_ADD_ATTR_FUNC(parse_margin_height, obj, "mg_height"),
-                    MB_ADD_ATTR_FUNC(parse_margin_width, obj, "mg_width"),
-                    MB_ADD_ATTR_FUNC(parse_padding_height, obj, "pd_height"),
-                    MB_ADD_ATTR_FUNC(parse_padding_width, obj, "pd_width"),
-                    MB_ADD_ATTR_FUNC(parse_pos_x, obj, "pos_x"),
-                    MB_ADD_ATTR_FUNC(parse_pos_y, obj, "pos_y"),
-                    MB_ADD_ATTR_FUNC(parse_hidden, obj, "hidden"),
+            const def::widget::markup_strategy<pugi::xml_attribute> attr_lut[] = {
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_width, obj, "width"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_height, obj, "height"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_margin_height, obj, "mg_height"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_margin_width, obj, "mg_width"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_padding_height, obj, "pd_height"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_padding_width, obj, "pd_width"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_pos_x, obj, "pos_x"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_pos_y, obj, "pos_y"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_hidden, obj, "hidden"),
             };
 
             for(const auto& attr : attr_lut) {

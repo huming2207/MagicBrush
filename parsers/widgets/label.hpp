@@ -27,12 +27,12 @@ namespace mb::widget
             auto ret = object::parse(node, obj);
             if (ret != def::STATE_OK) return ret;
 
-            static const def::markup_strategy<pugi::xml_attribute> attr_lut[] = {
-                    MB_ADD_ATTR_FUNC(parse_text, obj, "text"),
-                    MB_ADD_ATTR_FUNC(parse_anim_speed, obj, "anim_speed"),
-                    MB_ADD_ATTR_FUNC(parse_long_mode, obj, "long_mode"),
-                    MB_ADD_ATTR_FUNC(parse_recolor, obj, "recolor"),
-                    MB_ADD_ATTR_FUNC(parse_align, obj, "align"),
+            const def::widget::markup_strategy<pugi::xml_attribute> attr_lut[] = {
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_text, obj, "text"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_anim_speed, obj, "anim_speed"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_long_mode, obj, "long_mode"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_recolor, obj, "recolor"),
+                    MB_ADD_WIDGET_ATTR_FUNC(parse_align, obj, "align"),
             };
 
             for(const auto& attr : attr_lut) {
