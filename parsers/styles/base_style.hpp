@@ -10,6 +10,6 @@ namespace mb::style
     {
     public:
         virtual const char *name() = 0;
-        virtual def::state_t parse(const pugi::xml_node &node, lv_style_t *style) = 0;
+        virtual def::state_t parse(const pugi::xml_node &node, lv_style_t *style, lv_state_t state) = 0;
     };
 }
