@@ -1,7 +1,7 @@
 #pragma once
 
-#include "external/pugixml/pugixml.hpp"
-#include "helper/defs.hpp"
+#include "../../external/pugixml/pugixml.hpp"
+#include "../../helper/defs.hpp"
 #include "lvgl.h"
 
 namespace mb::style

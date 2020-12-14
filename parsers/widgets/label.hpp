@@ -50,11 +50,11 @@ namespace mb::widget
         {
             const char *val = attr.value();
             if (!val) {
-                ESP_LOGE("mb_label", "Invalid text");
+                MB_LOGE("mb_label", "Invalid text");
                 return def::STATE_INVALID_ATTR;
             } else {
                 size_t len = strlen(val);
-                ESP_LOGI("mb_label", "Text: %s, len: %u", val, len);
+                MB_LOGI("mb_label", "Text: %s, len: %zu", val, len);
             }
 
             lv_label_set_text(ui_obj, val);

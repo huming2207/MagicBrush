@@ -1,8 +1,8 @@
 #pragma once
 
-#include "pugixml.hpp"
-#include "helper/defs.hpp"
-#include "helper/markup_strategy.hpp"
+#include "../../external/pugixml/pugixml.hpp"
+#include "../../helper/defs.hpp"
+#include "../../helper/markup_strategy.hpp"
 
 namespace mb::widget
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstddef>
-#include "lvgl.h"
+#include <lvgl/lvgl.h>
 
 namespace mb::def
 {

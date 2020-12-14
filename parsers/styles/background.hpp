@@ -1,6 +1,6 @@
 #pragma once
 
-#include "helper/markup_strategy.hpp"
+#include "../../helper/markup_strategy.hpp"
 #include "base_style.hpp"
 
 namespace mb::style

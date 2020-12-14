@@ -8,7 +8,7 @@
 #include "widgets/base_widget.hpp"
 #include "widgets/object.hpp"
 
-#include "lvgl.h"
+#include <lvgl/lvgl.h>
 
 namespace mb
 {

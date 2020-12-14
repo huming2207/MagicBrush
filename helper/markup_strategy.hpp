@@ -2,7 +2,7 @@
 
 #include <functional>
 #include <lvgl/lvgl.h>
-#include "pugixml.hpp"
+#include "../external/pugixml/pugixml.hpp"
 #include "defs.hpp"
 
 #define MB_ADD_WIDGET_ATTR_FUNC(func, obj, name)                                             \

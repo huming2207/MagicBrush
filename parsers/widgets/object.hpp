@@ -3,9 +3,9 @@
 #include <array>
 #include <utility>
 #include <functional>
-#include "pugixml.hpp"
+#include "../../external/pugixml/pugixml.hpp"
 #include "base_widget.hpp"
-#include "lvgl.h"
+#include <lvgl/lvgl.h>
 
 namespace mb::widget
 {
